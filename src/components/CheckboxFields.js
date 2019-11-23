@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Field } from 'formik'
 
 export default function CheckboxFields(props) {

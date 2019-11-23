@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
        <h1>Todo</h1>
        <Todo/>
-       {/* <Display/> */}
+       <Display/>
       </div>
       </Provider>
       
