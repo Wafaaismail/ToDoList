@@ -5,12 +5,11 @@ import { connect } from 'react-redux'
 class SelectField extends React.Component {
     render() {
         const { input, field } = this.props
-
         return (
             <div>
                 <label>{input.name}</label>
-                <select {...field} {...input}>               {
-                    map(this.props.data.users, (user) => {
+                <select {...field} {...input}>{
+                    map(this.props.data.user, (user) => {
                         return (<option value={user.id}>{user.name}</option>)
                     })
                 }
