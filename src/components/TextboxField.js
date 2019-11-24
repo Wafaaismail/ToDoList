@@ -1,12 +1,17 @@
 import React from 'react'
-import { Field } from 'formik'
 
-export default function TextboxField(props) {
-    return (
-        <div>
-            <label>{props.name}</label>
-            <Field name={props.name} type={props.type}></Field>
-        </div>
-    )
+export class TextboxField extends React.Component {
+    render() {
+        const { input, field } = this.props
+        // console.log(input)
+        // console.log(field)
+
+        return (
+            <div>
+                <label>{input.name}</label>
+                <input {...input} {...field}></input>
+            </div>
+        )
+    }
 }
 

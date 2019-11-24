@@ -1,11 +1,14 @@
 import React from 'react'
-import { Field } from 'formik'
 
-export default function CheckboxFields(props) {
-    return (
-        <div>
-            <label>{props.name}</label>
-            <Field name={props.name} type={props.type}  /> 
-        </div>
-    )
+export class CheckboxFields extends React.Component {
+    render() {
+        const { input, field } = this.props
+        // console.log(input)
+        return (
+            <div>
+                <label>{input.name}</label>
+                <input {...input} {...field} />
+            </div>
+        )
+    }
 }

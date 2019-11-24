@@ -3,7 +3,7 @@ import './App.css';
 import store from './redux/reducers';
 import { Provider } from 'react-redux'
 import Todo from './Todo';
-import Display from './Display';
+//import Display from './Display';
 
 class App extends Component {
    
@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
        <h1>Todo</h1>
        <Todo/>
-       <Display/>
+       {/* <Display/> */}
       </div>
       </Provider>
       

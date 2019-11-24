@@ -121,19 +121,6 @@ const taskReducers = (state = data, action) =>{
             
     }
 }
-//     //     case TOGGLE_TASK :
-//     //         return state.map(task=>
-//     //              task.id == action.payload ? { ...task,completed : !task.completed} : task)
-        
-//     //     case removeTask : 
-//     //         return state.filter(task => {    
-//     //             return task.id == action.payload })
-
-//     //     default :
-//     //         return state
-        
-//      }
-
 const createStore =redux.createStore;
 export const store =createStore(taskReducers);
 const unsubscribe =store.subscribe(()=>{

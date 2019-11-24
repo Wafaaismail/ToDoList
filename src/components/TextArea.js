@@ -1,11 +1,15 @@
 import React from 'react'
-import { Field } from 'formik'
 
-export default function Textarea(props) {
-    return (
-        <div>
-            <label>{props.name}</label>
-            <Field name={props.name} as={props.type}  /> 
-        </div>
-    )
+export class TextArea extends React.Component {
+    render() {
+        const { input, field } = this.props
+        return (
+            <div>
+                <label>{input.name}</label>
+                <textarea {...input} {...field} />
+
+
+            </div>
+        )
+    }
 }

@@ -9,7 +9,7 @@ export  class Display extends Component {
             <ul> 
             { // Show tasks as list items
               map(this.props.data.tasks, (value, key) => {
-                return <li key={key} value={key}>{value.text}</li>
+              return (<li key={key} >{value.text}</li>)
               })
             }        
           </ul>
