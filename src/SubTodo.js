@@ -9,9 +9,7 @@ import { connect } from 'react-redux'
 export class SubTodo extends Component {
 
   onSubmit = (values) => {
-    console.log(this.props.data.task)
-    let id = _.find(this.props.data.task.tasks, { "text": this.props.todos.title }).taskid
-    console.log(id)
+    let id = _.find(this.props.data.tasks, { "text": this.props.todos.title }).taskid
     this.props.addSubTask(values.title, values.description, values.done, id)
   }
 
