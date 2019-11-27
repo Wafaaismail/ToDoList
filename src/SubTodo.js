@@ -6,6 +6,8 @@ import 'antd/dist/antd.css';
 import { renderFields } from './components/controller'
 import _ from 'lodash'
 import { connect } from 'react-redux'
+// import {buildDispatcers} from './redux/Dispatchers'
+
 export class SubTodo extends Component {
 
   onSubmit = (values) => {
@@ -60,6 +62,8 @@ const mapDispatchToprops = dispatch => {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToprops,
+   mapDispatchToprops,
+  // buildDispatcers('addSubTask')
+
 )(SubTodo)
 

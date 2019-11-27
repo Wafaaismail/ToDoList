@@ -4,7 +4,6 @@ import store from './redux/reducers';
 import { Provider } from 'react-redux'
 import Todo from './Todo';
 //import Display from './Display';
-
 class App extends Component {
    
   render() {

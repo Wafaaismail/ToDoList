@@ -3,7 +3,9 @@ import { connect } from 'react-redux'
 import { addTask } from './redux/reducers'
 import { Formik, Form } from 'formik';
 import { Modal, Button } from 'antd';
-
+import {apply}  from './apply/index'
+// import {buildDispatcers} from './redux/Dispatchers'
+import {funcs} from './apply/funcsjson'
 import _ from 'lodash'
 import 'antd/dist/antd.css';
 import SubTodo from './SubTodo'
@@ -32,6 +34,7 @@ class Todo extends Component {
     this.props.addTask(values.title, values.users, values.description, values.done)
     todoValues = values
     console.log(values)
+    apply(funcs,this.props.data)
 
 
   }
@@ -45,7 +48,7 @@ class Todo extends Component {
         <button type="submit">Submit</button>
         {/* <SubTodo  vis = {this.state} todos={todoValues} handleCancel={this.handleCancel}/> */}
         <Button type="button" onClick={this.showModal}>add subTask</Button>
-
+        
       </Form>
     )
 
@@ -109,7 +112,8 @@ const mapDispatchToprops = dispatch => {
 
 export default connect(
   mapStateToProps,
-  mapDispatchToprops,
+   mapDispatchToprops,
+  // buildDispatcers('addTask')
 )(Todo)
 
 

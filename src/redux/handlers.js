@@ -29,7 +29,6 @@ export const buildReducers = () => {
     }, {})
 
     return reducers
-
 }
 const combineReducers = redux.combineReducers;
 export const rootReducer = combineReducers(
