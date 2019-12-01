@@ -1,6 +1,8 @@
 const redux = require('redux');
 import _ from 'lodash';
 import { rootReducer } from './handlers'
+import {toString} from 'lodash'
+
 //================================ init =======================================
 
 let nextTaskId = 1;
@@ -14,7 +16,7 @@ const ADD_SUB_TASK = 'setData_subTasks'
 export const addTask = (text, parentid, taskDescription, taskdone) => {
     return {
         type: ADD_TASK,
-        id: nextTaskId++,
+        id: toString(nextTaskId++),
         payload: text,
         fid: parentid,
         taskDescription: taskDescription,
@@ -25,9 +27,10 @@ export const addTask = (text, parentid, taskDescription, taskdone) => {
 }
 
 export const addSubTask = (text, taskDescription, taskdone, taskid) => {
+    console.log(taskid)
     return {
         type: ADD_SUB_TASK,
-        id: nextsubtaskid++,
+        id: toString(nextsubtaskid++),
         payload: text,
         taskDescription: taskDescription,
         taskdone: taskdone,

@@ -1,14 +1,12 @@
-import {map,filter} from 'lodash'
-export const filterSubTasks =(subtasks,taskid) =>{
- 
-    return filter(subtasks,{'parentid': taskid})
+import {map,filter,size} from 'lodash'
+export const filterSubTasks =(c,subtasks,data) =>{
+    console.log("sub",subtasks)
+    console.log("data",data)
+    console.log(filter(subtasks,data.params))
+    return filter(subtasks,data.params)
 }
 
 export const countSubTasks =(subs)=>{
-
-   let counter =0 
-   map(subs,()=>{
-       counter+=1
-   })
-   return counter
+    console.log(subs)
+   return size(subs)
 } 

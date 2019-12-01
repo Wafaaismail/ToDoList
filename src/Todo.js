@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addTask } from './redux/reducers'
 import { Formik, Form } from 'formik';
-import { Modal, Button } from 'antd';
 import {apply}  from './apply/index'
 // import {buildDispatcers} from './redux/Dispatchers'
 import {funcs} from './apply/funcsjson'
@@ -12,29 +11,15 @@ import SubTodo from './SubTodo'
 import { renderFields } from './components/controller'
 //import * as Yup from 'yup';
 import fields from './components/fields'
+import CounterModal from './components/CounterModal';
 let todoValues = {}
+
 class Todo extends Component {
-  state = { visible: false };
-
-  showModal = () => {
-    this.setState({
-      visible: true,
-    });
-  };
-
-  handleCancel = e => {
-    console.log(e);
-    this.setState({
-      visible: false,
-    });
-  };
-
-
+  
   onSubmit = (values) => {
     this.props.addTask(values.title, values.users, values.description, values.done)
     todoValues = values
     console.log(values)
-    apply(funcs,this.props.data)
 
 
   }
@@ -47,7 +32,8 @@ class Todo extends Component {
         {renderFields(fields)}
         <button type="submit">Submit</button>
         {/* <SubTodo  vis = {this.state} todos={todoValues} handleCancel={this.handleCancel}/> */}
-        <Button type="button" onClick={this.showModal}>add subTask</Button>
+        <CounterModal todoValues ={todoValues}/> 
+        {/* <Button type="button" onClick={this.showModal}>add subTask</Button> */}
         
       </Form>
     )
@@ -84,15 +70,6 @@ class Todo extends Component {
           render={this.form}
           validationSchema={this.schema} />
 
-
-        <Modal
-          title="SubTodo"
-          visible={this.state.visible}
-          footer={null}
-          onCancel={this.handleCancel}
-        >
-          <SubTodo todos={todoValues} />
-        </Modal>
       </div>
 
     )

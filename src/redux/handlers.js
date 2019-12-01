@@ -9,7 +9,7 @@ const setData = (state, action) => {
             text: action.payload,
             completed: action.taskdone,
             taskDescription: action.taskDescription,
-            parendid: action.fid,
+            parentid: action.fid,
             id :action.id
         }
     }

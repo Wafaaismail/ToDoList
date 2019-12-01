@@ -12,7 +12,6 @@ export class SubTodo extends Component {
 
   onSubmit = (values) => {
     let id = _.find(this.props.data.tasks, { "text": this.props.todos.title }).id
-    console.log(id)
     this.props.addSubTask(values.title, values.description, values.done, id)
   }
 
@@ -40,8 +39,6 @@ export class SubTodo extends Component {
           onSubmit={this.onSubmit}
           render={this.form}
           validationSchema={this.schema} />
-
-
       </div>
 
     )
