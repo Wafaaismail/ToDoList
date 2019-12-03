@@ -10,6 +10,7 @@ import 'antd/dist/antd.css';
 import SubTodo from './SubTodo'
 import { renderFields } from './components/controller'
 //import * as Yup from 'yup';
+import {buildDispatcers} from './redux/Dispatchers'
 import fields from './components/fields'
 import CounterModal from './components/CounterModal';
 let todoValues = {}
@@ -17,7 +18,7 @@ let todoValues = {}
 class Todo extends Component {
   
   onSubmit = (values) => {
-    this.props.addTask(values.title, values.users, values.description, values.done)
+    this.props.add('tasks',values.title, values.users, values.description, values.done)
     todoValues = values
     console.log(values)
 
@@ -81,16 +82,16 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToprops = dispatch => {
-  return {
-    addTask: (text, userid, taskdesc, taskdone) => dispatch(addTask(text, userid, taskdesc, taskdone))
-  }
-}
+// const mapDispatchToprops = dispatch => {
+//   return {
+//     addTask: (text, userid, taskdesc, taskdone) => dispatch(addTask(text, userid, taskdesc, taskdone))
+//   }
+// }
 
 export default connect(
   mapStateToProps,
-   mapDispatchToprops,
-  // buildDispatcers('addTask')
+  //  mapDispatchToprops,
+   buildDispatcers
 )(Todo)
 
 

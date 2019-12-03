@@ -5,7 +5,7 @@ import {toString} from 'lodash'
 
 //================================ init =======================================
 
-let nextTaskId = 1;
+// let nextTaskId = 1;
 let nextsubtaskid = 1;
 
 //================================ actions =======================================
@@ -13,31 +13,31 @@ const ADD_TASK = 'setData_tasks';
 const ADD_SUB_TASK = 'setData_subTasks'
 
 //================================ action creator =====================================
-export const addTask = (text, parentid, taskDescription, taskdone) => {
-    return {
-        type: ADD_TASK,
-        id: toString(nextTaskId++),
-        payload: text,
-        fid: parentid,
-        taskDescription: taskDescription,
-        taskdone: taskdone
+// export const addTask = (text, parentid, taskDescription, taskdone) => {
+//     return {
+//         type: ADD_TASK,
+//         id: toString(nextTaskId++),
+//         payload: text,
+//         fid: parentid,
+//         taskDescription: taskDescription,
+//         taskdone: taskdone
 
 
-    };
-}
+//     };
+// }
 
-export const addSubTask = (text, taskDescription, taskdone, taskid) => {
-    console.log(taskid)
-    return {
-        type: ADD_SUB_TASK,
-        id: toString(nextsubtaskid++),
-        payload: text,
-        taskDescription: taskDescription,
-        taskdone: taskdone,
-        fid: taskid
-    }
+// export const addSubTask = (text, taskDescription, taskdone, taskid) => {
+//     console.log(taskid)
+//     return {
+//         type: ADD_SUB_TASK,
+//         id: toString(nextsubtaskid++),
+//         payload: text,
+//         taskDescription: taskDescription,
+//         taskdone: taskdone,
+//         fid: taskid
+//     }
 
-}
+// }
 // //================================ reducers =======================================
 
 // const taskReducer = (state = data.tasks, action) => {
