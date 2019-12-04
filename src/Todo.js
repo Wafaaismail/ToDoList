@@ -13,12 +13,13 @@ import { renderFields } from './components/controller'
 import {buildDispatcers} from './redux/Dispatchers'
 import fields from './components/fields'
 import CounterModal from './components/CounterModal';
+import {onSaving} from './dbGun/mainData'
 let todoValues = {}
-
 class Todo extends Component {
   
   onSubmit = (values) => {
-    this.props.add('tasks',values.title, values.users, values.description, values.done)
+     onSaving('tasks',values.title, values.users, values.description, values.done)
+    //this.props.add('tasks',values.title, values.users, values.description, values.done)
     todoValues = values
     console.log(values)
 
@@ -29,7 +30,6 @@ class Todo extends Component {
     // console.log(props)
     return (
       <Form onSubmit={props.handleSubmit}>
-
         {renderFields(fields)}
         <button type="submit">Submit</button>
         {/* <SubTodo  vis = {this.state} todos={todoValues} handleCancel={this.handleCancel}/> */}
