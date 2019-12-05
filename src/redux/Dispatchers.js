@@ -2,10 +2,10 @@ const uuidv4 = require('uuid/v4');
 // let nextTaskId = 1;
 export const buildDispatcers =(dispatch) =>{
     return {
-        add :(app,text, parentid, taskDescription, taskdone) => {
+        add :(app,text, parentid, taskDescription, taskdone,id) => {
          dispatch({
             type: `setData_${app}`,
-            id: uuidv4(),
+            id: id,
             payload: text,
             fid: parentid,
             taskDescription: taskDescription,

@@ -2,24 +2,32 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { addTask } from './redux/reducers'
 import { Formik, Form } from 'formik';
-import {apply}  from './apply/index'
+import { apply } from './apply/index'
 // import {buildDispatcers} from './redux/Dispatchers'
-import {funcs} from './apply/funcsjson'
+import { funcs } from './apply/funcsjson'
 import _ from 'lodash'
 import 'antd/dist/antd.css';
 import SubTodo from './SubTodo'
 import { renderFields } from './components/controller'
 //import * as Yup from 'yup';
-import {buildDispatcers} from './redux/Dispatchers'
+import { buildDispatcers } from './redux/Dispatchers'
 import fields from './components/fields'
 import CounterModal from './components/CounterModal';
-import {onSaving} from './dbGun/mainData'
+import { syncRedux, onSaving } from './dbGun/mainData'
+// const gun = window.Gun()
+
+// require('gun/lib/open.js')
 let todoValues = {}
-class Todo extends Component {
-  
+class Todo extends Component {  
+  // constructor(){
+  //   super()
+  //   syncRedux(this.props.a)
+  // }
+
   onSubmit = (values) => {
-     onSaving('tasks',values.title, values.users, values.description, values.done)
-    //this.props.add('tasks',values.title, values.users, values.description, values.done)
+    let id = onSaving('tasks', values.title, values.users, values.description, values.done)
+    syncRedux(this.props.add, 'tasks', values.title, values.users, values.description, values.done,id)
+    // this.props.add('tasks',values.title, values.users, values.description, values.done)
     todoValues = values
     console.log(values)
 
@@ -33,9 +41,9 @@ class Todo extends Component {
         {renderFields(fields)}
         <button type="submit">Submit</button>
         {/* <SubTodo  vis = {this.state} todos={todoValues} handleCancel={this.handleCancel}/> */}
-        <CounterModal todoValues ={todoValues}/> 
+        <CounterModal todoValues={todoValues} />
         {/* <Button type="button" onClick={this.showModal}>add subTask</Button> */}
-        
+
       </Form>
     )
 
@@ -91,7 +99,7 @@ const mapStateToProps = state => {
 export default connect(
   mapStateToProps,
   //  mapDispatchToprops,
-   buildDispatcers
+  buildDispatcers
 )(Todo)
 
 
