@@ -29,13 +29,11 @@ class Todo extends Component {
     syncRedux(this.props.add, 'tasks', values.title, values.users, values.description, values.done,id)
     // this.props.add('tasks',values.title, values.users, values.description, values.done)
     todoValues = values
-    console.log(values)
 
 
   }
 
   form = (props) => {
-    // console.log(props)
     return (
       <Form onSubmit={props.handleSubmit}>
         {renderFields(fields)}

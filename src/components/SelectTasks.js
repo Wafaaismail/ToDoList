@@ -8,7 +8,7 @@ class selectTasks extends React.Component {
         return (
             <div>
                 <label>Select Task</label>
-                <select {...field} name= 'tasks'>{
+                <select {...field} name='tasks'>{
                     map(this.props.data.tasks, (task) => {
                         return (<option value={task.id}>{task.text}</option>)
                     })

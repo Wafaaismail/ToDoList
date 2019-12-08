@@ -10,7 +10,7 @@ class SelectField extends React.Component {
                 <label>{input.name}</label>
                 <select {...field} {...input}>{
                     map(this.props.data.users, (user) => {
-                        return (<option value={user.id}>{user.name}</option>)
+                        return (<option value={user.id}>{user.text}</option>)
                     })
                 }
                 </select>

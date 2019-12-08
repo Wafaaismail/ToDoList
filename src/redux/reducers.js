@@ -1,7 +1,7 @@
 const redux = require('redux');
 import _ from 'lodash';
 import { rootReducer } from './handlers'
-import {toString} from 'lodash'
+import { toString } from 'lodash'
 
 //================================ init =======================================
 
@@ -94,7 +94,7 @@ const ADD_SUB_TASK = 'setData_subTasks'
 
 const createStore = redux.createStore;
 export const store = createStore(rootReducer);
- store.subscribe(() => {
+store.subscribe(() => {
     console.log('updated state', store.getState());
 });
 

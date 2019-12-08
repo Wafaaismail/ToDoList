@@ -4,7 +4,7 @@ import MidComp from '../MidComp'
 
 
 export const renderFields = (fields) => {
-	
+
 	return (<MidComp fields={fields} />)
 
 }

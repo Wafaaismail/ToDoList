@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
-import {apply}  from '../apply/index'
-import {funcs} from '../apply/funcsjson'
-import { Formik, Form ,Field } from 'formik';
-import {find} from 'lodash'
+import { apply } from '../apply/index'
+import { funcs } from '../apply/funcsjson'
+import { Formik, Form, Field } from 'formik';
+import { find } from 'lodash'
 import { connect } from 'react-redux'
-import {SelectTasks} from './SelectTasks'
+import { SelectTasks } from './SelectTasks'
 import SubTodo from '../SubTodo'
 import { Modal, Button } from 'antd';
 
-let id 
+let id
 
-export  class CounterModal extends Component {
+export class CounterModal extends Component {
   state = { visible: false };
 
   showModal = () => {
@@ -20,31 +20,28 @@ export  class CounterModal extends Component {
   };
 
   handleCancel = e => {
-    console.log(e);
     this.setState({
       visible: false,
     });
   };
 
 
-    onSubmit =(values)=>{
-      console.log(values)
-        id = values.tasks
-        console.log(id)
-        this.showModal()
+  onSubmit = (values) => {
+    id = values.tasks
+    this.showModal()
 
-    }
+  }
 
-    form = (props) => {
-        return (
-          <Form onSubmit={props.handleSubmit}>
-            <Field
-              name= 'tasks'
-              render= {(props) => {
-              return <SelectTasks {...props}/>
-              } 
-              }/>
-          
+  form = (props) => {
+    return (
+      <Form onSubmit={props.handleSubmit}>
+        <Field
+          name='tasks'
+          render={(props) => {
+            return <SelectTasks {...props} />
+          }
+          } />
+
         <Modal
           title="SubTodo"
           visible={this.state.visible}
@@ -53,42 +50,40 @@ export  class CounterModal extends Component {
         >
           <SubTodo todos={this.props.todoValues} />
         </Modal>
-              
-          <button type="submit">Add sub task </button>
-          </Form>
-        )
-    
-      }
 
-      render() {
-        console.log(id)
-        {console.log(apply(funcs(id)))}
-        return (
-          <div>
-            <Formik
-              initialValues={{
-                tasks: ''
-              }
-    
-              }
-              onSubmit={this.onSubmit}
-              render={this.form}
-              validationSchema={this.schema} />
-          </div>
-    
-        )
-      }
-    }
-    
-    const mapStateToProps = state => {
-      return {
-        data: state
-      }
-    }
-    
-  
-    export default connect(
-      mapStateToProps,    
-    )(CounterModal)
-    
-    
+        <button type="submit">Add sub task </button>
+      </Form>
+    )
+
+  }
+
+  render() {
+    // { console.log("counter :",apply(funcs(id))) }
+    return (
+      <div>
+        <Formik
+          initialValues={{
+            tasks: ''
+          }
+
+          }
+          onSubmit={this.onSubmit}
+          render={this.form}
+          validationSchema={this.schema} />
+      </div>
+
+    )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    data: state
+  }
+}
+
+
+export default connect(
+  mapStateToProps,
+)(CounterModal)
+

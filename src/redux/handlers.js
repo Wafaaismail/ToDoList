@@ -3,7 +3,6 @@ import { data } from './data'
 const redux = require('redux');
 
 const setData = (state, action) => {
-    console.log(state)
     return {
         ...state,
         [action.id]: {
@@ -11,7 +10,7 @@ const setData = (state, action) => {
             completed: action.taskdone,
             taskDescription: action.taskDescription,
             parentid: action.fid,
-            id :action.id
+            id: action.id
         }
     }
 }

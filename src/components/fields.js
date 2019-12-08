@@ -13,16 +13,16 @@ export default {
     "comptype": "TextArea"
   },
 
-  "done": { 
+  "done": {
     "name": "done",
-   "type": "checkbox",
+    "type": "checkbox",
     "comptype": "CheckboxFields"
-   },
+  },
 
   "users": {
-     "name": "users",
-      "type": "select",
-      "comptype": "Select" 
-    },
+    "name": "users",
+    "type": "select",
+    "comptype": "Select"
+  },
 
 }

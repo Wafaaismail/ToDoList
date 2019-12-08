@@ -15,7 +15,7 @@ export default class MidComp extends Component {
 
                             let Comp = get(Comps, compname)
 
-                         return <Comp {...props} input={field} />
+                            return <Comp {...props} input={field} />
                         }
                         }
                     />

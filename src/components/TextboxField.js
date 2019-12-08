@@ -3,8 +3,6 @@ import React from 'react'
 export class TextboxField extends React.Component {
     render() {
         const { input, field } = this.props
-        // console.log(input)
-        // console.log(field)
 
         return (
             <div>

@@ -1,18 +1,18 @@
 
-export const funcs =(taskid) =>({
+export const funcs = (taskid) => ({
 
-    'key' : 'filterSubTasks',
+    'key': 'filterSubTasks',
     'path': 'subTasks',
-    'params' : {
-        'parentid':taskid
-            },
+    'params': {
+        'parentid': taskid
+    },
 
-            
-    'then':{
-            'key' : 'countSubTasks',
-            'countkey' : '',
-            start : 0
-            }
-        
 
-    })
+    'then': {
+        'key': 'countSubTasks',
+        'countkey': '',
+        start: 0
+    }
+
+
+})
