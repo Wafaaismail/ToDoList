@@ -4,9 +4,9 @@ import { store } from '../redux/reducers'
 import { dcontroller } from './displayjson'
 
 export default class RootDisplay extends Component {
-  state = {
-    selectedOptions : {}
-  }
+  // state = {
+  //   selectedOptions : {}
+  // }
   render() {
     console.log(this.state)
     return (
@@ -15,8 +15,8 @@ export default class RootDisplay extends Component {
         <Display
             data = {store.getState()}  //store data
             c= {dcontroller}    //json obj
-            onChange = {(selectedOptions)=> this.setState({selectedOptions})} //controll state
-            selectedOptions ={this.state.selectedOptions}  
+            // onChange = {(selectedOptions)=> this.setState({selectedOptions})} //controll state
+            // selectedOptions ={this.state.selectedOptions}  
         />
       </div>
     )

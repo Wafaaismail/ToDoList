@@ -11,15 +11,15 @@ let kj, ij
 // let state = store.getState()
 export default class Display extends Component {
     state = {
-        activeKey :{}
+        activeKey: {}
     }
     callback = key => {
         console.log(key)
-        this.props.selectedOptions[key] = {}
-        this.props.onChange(this.props.selectedOptions)
+        // this.props.selectedOptions[key] = {}
+        // this.props.onChange(this.props.selectedOptions)
         this.setState({
             activeKey: key,
-          });
+        });
 
     }
     //  handleSubOptionsListChange = (optionId, subSelections) => {
@@ -30,21 +30,27 @@ export default class Display extends Component {
     //   }
 
 
-    applyDisplay = (s = this.props.data, c = this.props.c, onChange = this.props.onChange, selectedOptions = this.props.selectedOptions) => {
+    applyDisplay = (s = this.props.data, c = this.props.c) => {
         kj = get(c, 'key', 'defkey')
-        ij = get(c, 'id', 'defid')
+        console.log(kj)
         {
             return <Collapse onChange={this.callback} >
-                <Panel header={kj} key={ij}>
+                <Panel header={kj} key={kj}>
                     {map(s[kj], (content) => {
                         return (<Collapse onChange={this.callback}>
                             <Panel header={content.text} key={content.id}>
                             </Panel>
-                        </Collapse>)
+                        </Collapse>
 
-                        //  (c.then && this.state.activeKey) &&console.log(c.then)
 
-                    })}
+                        )
+
+                    }),
+                     //console.log(this.state.activeKey && c.then) , 
+                     console.log(c.then)
+                        //   this.applyDisplay(s,c.then)
+                        
+                    }
 
                 </Panel>
             </Collapse>
