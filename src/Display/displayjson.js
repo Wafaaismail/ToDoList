@@ -1,30 +1,14 @@
-export const dcontroller = (data) => ({
+export const dcontroller = {
     'key': 'users',
-    'data': {
-        'id': data.users.id,
-        'name': data.users.text
-    },
+    'id': 'usersid',
     'then': {
         'key': 'tasks',
-        'data': {
-            'id': data.tasks.id,
-            'name': data.tasks.text,
-            'description': data.tasks.description,
-            'done': data.tasks.completed,
-            'parentid': data.tasks.parentid
-        },
-        'then': {
-            'key': 'subTasks',
-            'data': {
-                'id': data.tasks.id,
-                'name': data.tasks.text,
-                'description': data.tasks.description,
-                'done': data.tasks.completed,
-                'parentid': data.tasks.parentid
-            }
-
-
-        }
+        'id': 'tasksid',
+    },
+    'then': {
+        'key': 'subTasks',
+        'id': 'subtasksid'
 
     }
-})
+
+}

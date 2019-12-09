@@ -107,5 +107,5 @@ store.subscribe(() => {
 // store.dispatch(addSubTask('my third sub todo', 'ahsdgjs', 'true', '2'));
 
 
-console.log('updated state', store.getState());
+// console.log('updated state', store.getState());
 export default store;

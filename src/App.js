@@ -3,16 +3,13 @@ import './App.css';
 import store from './redux/reducers';
 import { Provider } from 'react-redux'
 import Todo from './Todo';
-// import  Gun from 'gun/gun'
-// const  gun = Gun('http://yourdomain.com/gun')
-import { onSaving } from './dbGun/mainData'
+//import { onSaving } from './dbGun/mainData'
 import RootDisplay from './Display/RootDisplay';
-// var Gun = require('gun/gun')
 
 //import Display from './Display';
 class App extends Component {
   render() {
-    onSaving()
+    //onSaving()
     return (
       <Provider store={store}>
         <div className="App">
@@ -23,7 +20,8 @@ class App extends Component {
           <Todo />
           <br/>
           <hr/>
-          <RootDisplay store = {store.getState()}/>
+        
+          <RootDisplay/>
         </div>
       </Provider>
 

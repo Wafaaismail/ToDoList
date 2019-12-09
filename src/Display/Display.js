@@ -1,57 +1,63 @@
 
-import React from 'react'
-import { get ,map} from 'lodash'
+import React, { Component } from 'react'
+import { get, map } from 'lodash'
 import { store } from '../redux/reducers'
-import { dcontroller } from './displayjson'
-const Checkbox = (selected, label, onChange) => {
-    return (
-        <div>
-            <div className="checkbox"
-                onClick={() => onChange(!selected)} />
+// import { Collapse, Panel } from 'antd';
+import { Collapse } from 'antd';
+const { Panel } = Collapse;
+let kj, ij
 
-            <div className="label">{label}</div>
 
-        </div>
-    )
-
-}
-let dkey
-export default function Display(state = this.props.data, selectedOptions, onChange) {
-
-    const handleCheckboxClicked = (selectedOptionId)=>{
-        if(selectedOptions[selectedOptionId])
-        delete selectedOptions[selectedOptionId]
-        else
-        selectedOptions[selectedOptionId] = {} 
-
-        onChange(selectedOptions) 
+// let state = store.getState()
+export default class Display extends Component {
+    state = {
+        activeKey :{}
+    }
+    callback = key => {
+        console.log(key)
+        this.props.selectedOptions[key] = {}
+        this.props.onChange(this.props.selectedOptions)
+        this.setState({
+            activeKey: key,
+          });
 
     }
-    return (
-        <div>
-            {
-                dkey =get (dcontroller(state.data),'key','d'),
-                map(state[dkey],d=>{
-                    console.log(d),
-                    console.log(d.text)
-                }
-                // <ul>
-                //     <li>{d.text}</li>
-
-                // </ul>
-                )
+    //  handleSubOptionsListChange = (optionId, subSelections) => {
+    //     // add sub selections to current optionId
+    //     selectedOptions[optionId] = subSelections;
+    //     // call onChange function given by parent
+    //     onChange(selectedOptions);
+    //   }
 
 
-            }
-        </div>
-    )
+    applyDisplay = (s = this.props.data, c = this.props.c, onChange = this.props.onChange, selectedOptions = this.props.selectedOptions) => {
+        kj = get(c, 'key', 'defkey')
+        ij = get(c, 'id', 'defid')
+        {
+            return <Collapse onChange={this.callback} >
+                <Panel header={kj} key={ij}>
+                    {map(s[kj], (content) => {
+                        return (<Collapse onChange={this.callback}>
+                            <Panel header={content.text} key={content.id}>
+                            </Panel>
+                        </Collapse>)
+
+                        //  (c.then && this.state.activeKey) &&console.log(c.then)
+
+                    })}
+
+                </Panel>
+            </Collapse>
+
+        }
+
+    }
+    render() {
+        console.log(this.state)
+        return (
+            <div>
+                {this.applyDisplay()}
+            </div>
+        )
+    }
 }
-
-
-//  {/* 1-CheckBox to select*/}
-//                     {/* <Checkbox */}
-//                         {/* selected ={dObjects.key} */}
-//                         {/* label = {dObjects.key} */}
-//                         {/* // onChange ={} */}
-//                         {/* /> */}
-//             {/* 2-Recursion base  */}
