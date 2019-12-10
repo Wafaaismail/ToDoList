@@ -13,7 +13,7 @@ export default class RootDisplay extends Component {
       <div>
         <h4>Your stored Todos </h4>
         <Display
-              //store data
+            s= {store.getState()}  //store data
             c= {dcontroller}    //json obj
             // onChange = {(selectedOptions)=> this.setState({selectedOptions})} //controll state
             // selectedOptions ={this.state.selectedOptions}  
