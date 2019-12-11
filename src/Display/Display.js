@@ -5,20 +5,29 @@ import { store } from '../redux/reducers'
 // import { Collapse, Panel } from 'antd';
 import { Collapse } from 'antd';
 const { Panel } = Collapse;
-let kj, x
+import { toString } from 'lodash'
 
+import validator from 'validator'
+let kj, x
+let activeKey
 
 // let state = store.getState()
 export default class Display extends Component {
     state = {
-        activeKey: ''
+        activeKey: {}
     }
 
     callback = key => {
-        console.log(key)
+
+        (key == 'tasks' || key == 'subTasks' || validator.isUUID(toString(activeKey)) ? console.log("ds")
+            : activeKey = key 
+            )
         this.setState({
-            activeKey: key
+            activeKey: activeKey
         });
+        console.log("act", activeKey)
+
+        console.log("sta", this.state.activeKey)
 
     }
 
@@ -52,37 +61,35 @@ export default class Display extends Component {
 
     // }
     render() {
-        // console.log(this.state)
+        console.log("render 60", this.state.activeKey)
         return (
             <div>
                 {kj = get(this.props.c, 'key', 'defkey'),
-                    console.log("kj",kj),
-                    console.log("c",this.props.c),
-                    console.log("s",this.props.s),
-                    <Collapse onChange={this.callback} >
+                    console.log("kj", kj),
+                    console.log("c", this.props.c),
+                    console.log("s", this.props.s),
+                    <Collapse  onChange={this.callback} >
                         <Panel header={kj} key={kj}>
                             {map(this.props.s[kj], (content) => {
                                 return (
-                                <Collapse onChange={this.callback}>
-                                    {
-                                        
-                                        (kj=='users' || (content.parentid == this.state.activeKey)) ?
-                                            <Panel header={content.text} key={content.id} >
-                                                <p>{content.taskDescription}</p>
-                                                
-                                                
-                                                {
-                                                    //console.log("dasd",this.state.activeKey),
-                                                    //console.log(content),
-                                                    <Display
-                                                        s={store.getState()}
-                                                        c={this.props.c.then}
-                                                    />                               
+                                    <Collapse activeKey={this.state.activeKey} onChange={this.callback}>
+                                        {console.log("co", content),
+                                            console.log("now", this.state.activeKey),
+                                            (kj == 'users' || (content.parentid == this.state.activeKey[1])) ? (
 
-                                                }
-                                            </Panel> : console.log("sa") 
-                            }
-                                </Collapse>)
+                                                <Panel header={content.text} key={content.id} >
+                                                    <p>{content.taskDescription}</p>
+
+                                                    {console.log("bef", this.state.activeKey),
+                                                        <Display
+                                                            s={store.getState()}
+                                                            c={this.props.c.then}
+                                                        />
+
+                                                    }
+                                                </Panel>) : console.log("sss", this.state.activeKey)
+                                        }
+                                    </Collapse>)
                             })
                             }
                         </Panel>
