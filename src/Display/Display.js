@@ -14,52 +14,22 @@ let activeKey
 // let state = store.getState()
 export default class Display extends Component {
     state = {
-        activeKey: {}
+        activeKey: this.props.id
     }
 
     callback = key => {
 
-        (key == 'tasks' || key == 'subTasks' || validator.isUUID(toString(activeKey)) ? console.log("ds")
-            : activeKey = key 
-            )
+        // (key == 'tasks' || key == 'subTasks' || validator.isUUID(toString(activeKey)) ? console.log("ds")
+        //     : activeKey = key 
+        //     )
         this.setState({
-            activeKey: activeKey
+            activeKey:  key
         });
         console.log("act", activeKey)
 
         console.log("sta", this.state.activeKey)
 
     }
-
-    modifyData = (data) => {
-        console.log("hgadgsgshgdhgh")
-
-
-
-        // return ((this.state.activeKey) && (this.props.c.then)) ?
-        //          filter(data[this.props.c.then.key], con => {
-
-        //         console.log(con.parentid)
-        //         console.log(this.state.activeKey)
-        //         console.log(con.parentid == this.state.activeKey)
-        //         x = (con.parentid == this.state.activeKey) ? con : {}
-        //         console.log("res", x)
-
-        //         return x
-
-        //     }) : console.log("as")
-    }
-
-    // applyDisplay = (s = store.getState(), c = this.props.c) => {
-    //     kj = get(c, 'key', 'defkey')
-    //     console.log("s",s)
-    //     console.log("c",c)
-
-
-    //     {
-    //         return (
-
-    // }
     render() {
         console.log("render 60", this.state.activeKey)
         return (
@@ -68,27 +38,29 @@ export default class Display extends Component {
                     console.log("kj", kj),
                     console.log("c", this.props.c),
                     console.log("s", this.props.s),
-                    <Collapse  onChange={this.callback} >
+                    <Collapse   defaultActiveKe = {this.state.activeKey}>
                         <Panel header={kj} key={kj}>
                             {map(this.props.s[kj], (content) => {
                                 return (
-                                    <Collapse activeKey={this.state.activeKey} onChange={this.callback}>
+                                      <Collapse onChange={this.callback} >
                                         {console.log("co", content),
                                             console.log("now", this.state.activeKey),
-                                            (kj == 'users' || (content.parentid == this.state.activeKey[1])) ? (
+                                            (this.state.activeKey == content.parentid || kj=='users') ?
+                                            <Panel header={content.text} key={content.id}  >
+                                                    <p>{content.taskDescription}</p> 
 
-                                                <Panel header={content.text} key={content.id} >
-                                                    <p>{content.taskDescription}</p>
-
-                                                    {console.log("bef", this.state.activeKey),
+                                                {console.log("bef", this.state.activeKey),
+                                                (this.props.c.then) ? (
                                                         <Display
+                                                            id = {this.state.activeKey}
                                                             s={store.getState()}
                                                             c={this.props.c.then}
                                                         />
 
-                                                    }
-                                                </Panel>) : console.log("sss", this.state.activeKey)
-                                        }
+                                                    
+                                                    ) : console.log("sss", this.state.activeKey)
+                                                }
+                                                </Panel> : console.log("s")}
                                     </Collapse>)
                             })
                             }
