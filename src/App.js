@@ -15,9 +15,9 @@ class App extends Component {
         <div className="App">
           <br/>
           <br/>
-          <h1>Todos</h1>
+          <h1> Todos</h1>
           <br/>
-          <Todo />
+          <Todo className="todo"/>
           <br/>
           <hr/>
         

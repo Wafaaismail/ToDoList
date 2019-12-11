@@ -15,9 +15,7 @@ export default class RootDisplay extends Component {
         <Display
             id = {{}}
             s= {store.getState()}  //store data
-            c= {dcontroller}    //json obj
-            // onChange = {(selectedOptions)=> this.setState({selectedOptions})} //controll state
-            // selectedOptions ={this.state.selectedOptions}  
+            c= {dcontroller}    //json obj  
         />
       </div>
     )
