@@ -18,7 +18,7 @@ export default class Display extends Component {
     callback = key => {
 
        //  validator.isUUID(toString(this.state.activeKey)) ? console.log("ds") :
-       (this.state.activeKey == x) ? console.log("Skip"):
+//        (this.state.activeKey == x) ? console.log("Skip"):
         this.setState({
             activeKey: key
         });
