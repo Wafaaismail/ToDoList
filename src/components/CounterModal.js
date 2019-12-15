@@ -8,7 +8,7 @@ import { SelectTasks } from './SelectTasks'
 import SubTodo from '../SubTodo'
 import { Modal, Button } from 'antd';
 
-let id
+let id ,x
 
 export class CounterModal extends Component {
   state = { visible: false };
@@ -31,14 +31,15 @@ export class CounterModal extends Component {
     this.showModal()
 
   }
-
+  
   form = (props) => {
     return (
       <Form onSubmit={props.handleSubmit}>
         <Field
           name='tasks'
           render={(props) => {
-            return <SelectTasks {...props} />
+            return <SelectTasks {...props} 
+            />
           }
           } />
 
@@ -48,7 +49,8 @@ export class CounterModal extends Component {
           footer={null}
           onCancel={this.handleCancel}
         >
-          <SubTodo todos={this.props.todoValues} />
+          {/* <SubTodo todos={this.props.todoValues}/> */}
+          <SubTodo/>
         </Modal>
 
         <button type="submit">Add sub task </button>

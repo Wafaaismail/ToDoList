@@ -91,9 +91,14 @@ const ADD_SUB_TASK = 'setData_subTasks'
 //     subtask :subTaskReducer,
 //     user:userReducer
 // })
+import { composeWithDevTools } from "redux-devtools-extension";
+
+
 
 const createStore = redux.createStore;
-export const store = createStore(rootReducer);
+export const store = createStore(rootReducer,
+     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+)
 store.subscribe(() => {
     console.log('updated state', store.getState());
 });

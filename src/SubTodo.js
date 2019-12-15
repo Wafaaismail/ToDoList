@@ -8,13 +8,21 @@ import _ from 'lodash'
 import { connect } from 'react-redux'
 import { buildDispatcers } from './redux/Dispatchers'
 import { onSaving, syncRedux } from './dbGun/mainData'
+import {x} from './components/SelectTasks'
 const gun = window.Gun()
+let id
 export class SubTodo extends Component {
+  constructor(props){
+    super(props)
+    //let id = _.find(this.props.data.tasks, { "text": this.props.todos.title }).id
 
+    console.log(x)
+     id = x
+    syncRedux(this.props.add, 'subTasks')
+  }
   onSubmit = (values) => {
-    let id = _.find(this.props.data.tasks, { "text": this.props.todos.title }).id
-    let subid = onSaving('subTasks', values.title, values.users, values.description, values.done)
-    syncRedux(this.props.add, 'subTasks', values.title, id, values.description, values.done, subid)
+    onSaving('subTasks', values.title, id, values.description, values.done)
+    
 
   }
 

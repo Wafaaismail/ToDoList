@@ -13,22 +13,28 @@ import { renderFields } from './components/controller'
 import { buildDispatcers } from './redux/Dispatchers'
 import fields from './components/fields'
 import CounterModal from './components/CounterModal';
-import { syncRedux, onSaving } from './dbGun/mainData'
-// const gun = window.Gun()
+import { syncRedux, onSaving ,set_users,sync_users } from './dbGun/mainData'
+ const gun = window.Gun()
 
 // require('gun/lib/open.js')
-let todoValues = {}
+//let todoValues = {}
 class Todo extends Component {  
-  // constructor(){
-  //   super()
-  //   syncRedux(this.props.a)
-  // }
+  constructor(props){
+    super(props)
+    // set_users()
+    // sync_users (this.props.add,gun.get('root').get('users').get('1'))
+    // sync_users (this.props.add,gun.get('root').get('users').get('2'))
+    // sync_users (this.props.add,gun.get('root').get('users').get('3'))
+    // sync_users (this.props.add,gun.get('root').get('users').get('4'))
+    // sync_users (this.props.add,gun.get('root').get('users').get('5'))
+    syncRedux(this.props.add, 'tasks')
+  }
 
   onSubmit = (values) => {
-    let id = onSaving('tasks', values.title, values.users, values.description, values.done)
-    syncRedux(this.props.add, 'tasks', values.title, values.users, values.description, values.done,id)
+    onSaving('tasks', values.title, values.users, values.description, values.done)
+    console.log("vak",values)
     // this.props.add('tasks',values.title, values.users, values.description, values.done)
-    todoValues = values
+  //  todoValues = values
 
 
   }
@@ -39,7 +45,8 @@ class Todo extends Component {
         {renderFields(fields)}
         <button type="submit">Submit</button>
         {/* <SubTodo  vis = {this.state} todos={todoValues} handleCancel={this.handleCancel}/> */}
-        <CounterModal todoValues={todoValues} />
+        {/* <CounterModal todoValues={todoValues} /> */}
+        <CounterModal/>
         {/* <Button type="button" onClick={this.showModal}>add subTask</Button> */}
 
       </Form>
@@ -64,6 +71,7 @@ class Todo extends Component {
   render() {
     return (
       <div>
+ 
         <Formik
           initialValues={{
             title: '',
