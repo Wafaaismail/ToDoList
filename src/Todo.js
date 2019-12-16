@@ -14,25 +14,20 @@ import { buildDispatcers } from './redux/Dispatchers'
 import fields from './components/fields'
 import CounterModal from './components/CounterModal';
 import { syncRedux, onSaving ,set_users,sync_users } from './dbGun/mainData'
- const gun = window.Gun()
+ 
 
 // require('gun/lib/open.js')
 //let todoValues = {}
 class Todo extends Component {  
   constructor(props){
     super(props)
-    // set_users()
-    // sync_users (this.props.add,gun.get('root').get('users').get('1'))
-    // sync_users (this.props.add,gun.get('root').get('users').get('2'))
-    // sync_users (this.props.add,gun.get('root').get('users').get('3'))
-    // sync_users (this.props.add,gun.get('root').get('users').get('4'))
-    // sync_users (this.props.add,gun.get('root').get('users').get('5'))
-    syncRedux(this.props.add, 'tasks')
+   
+     syncRedux(this.props.add, 'tasks')
   }
 
   onSubmit = (values) => {
     onSaving('tasks', values.title, values.users, values.description, values.done)
-    console.log("vak",values)
+    // console.log("vak",values)
     // this.props.add('tasks',values.title, values.users, values.description, values.done)
   //  todoValues = values
 
@@ -41,9 +36,11 @@ class Todo extends Component {
 
   form = (props) => {
     return (
-      <Form onSubmit={props.handleSubmit}>
+      <Form onSubmit={props.handleSubmit} >
         {renderFields(fields)}
-        <button type="submit">Submit</button>
+        <button type="submit" class="btnsubmit">Submit</button>
+        <br/>
+        <hr/>
         {/* <SubTodo  vis = {this.state} todos={todoValues} handleCancel={this.handleCancel}/> */}
         {/* <CounterModal todoValues={todoValues} /> */}
         <CounterModal/>

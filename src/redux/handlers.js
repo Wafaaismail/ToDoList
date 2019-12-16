@@ -10,17 +10,27 @@ const setData = (state, action) => {
             completed: action.taskdone,
             taskDescription: action.taskDescription,
             parentid: action.fid,
-            id: action.id
+            id: action.id,
+            // active :action.id
         }
     }
 }
 
+// const active = (state, action) =>{
+//     return {
+//         ...state,
+//         id :action.id
+        
+//     }
+
+// }
 const reducersName = ['tasks', 'subTasks', 'users']
 
 export const buildReducers = () => {
     let reducers = reduce(reducersName, (result, reducerName) => {
         const handlers = {
-            [`setData_${reducerName}`]: setData
+            [`setData_${reducerName}`]: setData ,
+            // [`active${reducerName}`] :active
         }
         result[reducerName] = (state = data[reducerName], action) => {
             return get(handlers, action.type, d => d)(state, action)

@@ -5,6 +5,6 @@ import MidComp from '../MidComp'
 
 export const renderFields = (fields) => {
 
-	return (<MidComp fields={fields} />)
+	return (<MidComp fields={fields}  />)
 
 }

@@ -1,12 +1,26 @@
 .App {
-  text-align: center;
-  /* background-color: #954E5E;
-  color: aliceblue; */
+  /* display: flex;
+  flex-direction: column; */
 }
 
-/* .todo {
-  color: black;
+h1{
+  text-align: center;
+}
+/* children part1 'formik' */
+.forminput, .btnsubmit {
+  background-color: lightcoral;
+  display: flex;
+  flex-direction: row;
+
+}
+
+/* children part2 'subtasks */
+.selecttasks,.btnmodal{
   display: flex;
   flex-direction: column;
+  background-color: lightgreen;
+  align-items: center;  
+ 
+}
 
-} */
+/* children part3 'collapse' */

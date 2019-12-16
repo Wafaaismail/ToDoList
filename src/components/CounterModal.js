@@ -53,7 +53,7 @@ export class CounterModal extends Component {
           <SubTodo/>
         </Modal>
 
-        <button type="submit">Add sub task </button>
+        <button type="submit" class='btnmodal'>Add sub task </button>
       </Form>
     )
 

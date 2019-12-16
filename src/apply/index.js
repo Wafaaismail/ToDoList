@@ -10,13 +10,14 @@ export const apply = (jsonfuncs, data = {}, state = store.getState(), props = {}
     let funcnamefromjson = get(jsonfuncs, 'key', "defaultfunc")
 
     path = get(jsonfuncs, 'path', data)
-
-
+    // path == 'users' ? out = state.users :console.log('object')
+    console.log("path",path)
+    console.log(get(functions, funcnamefromjson, 'ddd'))
     let out = get(functions, funcnamefromjson, 'ddd')(data, state[path], jsonfuncs)
-
-    if (jsonfuncs.then) {
-        return apply(jsonfuncs.then, out, state, props)
-    }
+    console.log("out",out)
+    // if (jsonfuncs.then) {
+    //     return apply(jsonfuncs.then, out, state, props)
+    // }
     return out
 
 }

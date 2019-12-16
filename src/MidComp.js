@@ -8,7 +8,8 @@ export default class MidComp extends Component {
         return (
             map(this.props.fields, (field) => {
                 return (
-                    <Field
+                    <div class='forminput'>
+                    <Field 
                         name={field.name}
                         render={(props) => {
                             let compname = get(field, "comptype")
@@ -19,6 +20,7 @@ export default class MidComp extends Component {
                         }
                         }
                     />
+                    </div>
 
 
 

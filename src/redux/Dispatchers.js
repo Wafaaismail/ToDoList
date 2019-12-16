@@ -11,8 +11,16 @@ export const buildDispatcers = (dispatch) => {
                 taskDescription: taskDescription,
                 taskdone: taskdone
 
-            })
-        }
+            })},
+        // active :(app,id)=>{
+        //     dispatch({
+        //         type : `active_${app}`,
+        //         active : id
+
+        //     })
+        // }
+        
+        
     }
 }
 

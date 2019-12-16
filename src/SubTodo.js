@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { buildDispatcers } from './redux/Dispatchers'
 import { onSaving, syncRedux } from './dbGun/mainData'
 import {x} from './components/SelectTasks'
-const gun = window.Gun()
+// const gun = window.Gun()
 let id
 export class SubTodo extends Component {
   constructor(props){
@@ -18,10 +18,10 @@ export class SubTodo extends Component {
 
     console.log(x)
      id = x
-    syncRedux(this.props.add, 'subTasks')
+     syncRedux(this.props.add, 'subTasks')
   }
   onSubmit = (values) => {
-    onSaving('subTasks', values.title, id, values.description, values.done)
+     onSaving('subTasks', values.title, id, values.description, values.done)
     
 
   }
@@ -30,6 +30,7 @@ export class SubTodo extends Component {
     return (
       <Form onSubmit={props.handleSubmit}>
         {renderFields(_.omit(fields, "users"))}
+        <br/>
         <button type="submit">Add sub task </button>
       </Form>
     )

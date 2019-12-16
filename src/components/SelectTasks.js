@@ -11,7 +11,7 @@ class selectTasks extends React.Component {
     render() {
         const { field } = this.props
         return (
-            <div>
+            <div class="selecttasks">
                 <label>Select Task</label>
                 <select {...field} name='tasks' onChange={this.handleChange}>{
                     map(this.props.data.tasks, (task) => {

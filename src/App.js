@@ -5,6 +5,8 @@ import { Provider } from 'react-redux'
 import Todo from './Todo';
 //import { onSaving } from './dbGun/mainData'
 import RootDisplay from './Display/RootDisplay';
+import DisplayRoot from './Display/DisplayRoot';
+import {dcontroller} from './Display/displayjson'
 
 //import Display from './Display';
 class App extends Component {
@@ -15,13 +17,14 @@ class App extends Component {
         <div className="App">
           <br/>
           <br/>
-          <h1> Todos</h1>
+          <h1 > Todos</h1>
           <br/>
           <Todo className="todo"/>
           <br/>
           <hr/>
-        
-          <RootDisplay/>
+          <DisplayRoot s={dcontroller({})} id={{}}/>
+          {/* <RootDisplay/> */}
+          
         </div>
       </Provider>
 

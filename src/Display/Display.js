@@ -33,7 +33,7 @@ export default class Display extends Component {
                         <Panel header={kj} key={kj}>
                             {map(this.props.s[kj], (content) => {
                                 return (
-                                    <Collapse onChange={this.callback} >
+                                    <Collapse onChange={this.callback} defaultActiveKe={this.state.activeKey} >
                                         { 
                                             (this.state.activeKey == content.parentid || kj == 'users' ||
                                             this.state.activeKey == content.id ) ?
