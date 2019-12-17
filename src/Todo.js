@@ -36,10 +36,13 @@ class Todo extends Component {
 
   form = (props) => {
     return (
-      <Form onSubmit={props.handleSubmit} class="formtodo">
-                <div class='forminput'>{renderFields(fields)}</div>
-
+      <Form onSubmit={props.handleSubmit}>
+       <div class='form'>
+                <div class='forminput'>{renderFields(fields)}
+                </div>
+          <br/>
         <button type="submit" class="btnsubmit">Submit</button>
+        </div>
         <br/>
         <hr/>
         {/* <SubTodo  vis = {this.state} todos={todoValues} handleCancel={this.handleCancel}/> */}

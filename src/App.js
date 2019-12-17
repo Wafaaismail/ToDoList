@@ -23,7 +23,7 @@ class App extends Component {
           <Todo />
           <br/>
           <hr/>
-          <div className="discollapse">
+          <div >
           <DisplayRoot s={dcontroller({})} id={{}}/>
           </div>
          

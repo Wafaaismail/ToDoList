@@ -1,22 +1,28 @@
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 h1{
   text-align: center;
+  color: red;
 }
+
+
 /* children part1 'formik' */
 .forminput, .btnsubmit {
-  background-color: lightcoral;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
-  width: 40%;
-  /* align-items: center; */
+  align-items: center;  
 
+  width: 40%;
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
 
 }
 .inputcomp {
@@ -25,6 +31,7 @@ h1{
   justify-content: space-around;
   /* width: 80%;
    */
+   
 
   
 }
@@ -38,6 +45,22 @@ h1{
 }
 
 /* children part3 'collapse' */
-.discollapse{
- 
+
+
+.collapsedisp{
+  display: flex;
+  flex-direction: column;
+
+}
+.co{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+} 
+.disco{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;  
+
 }

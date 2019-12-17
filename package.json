@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "gun": "^0.2019.1120",
+    "jquery": "^1.9.1",
     "lodash": "^4.17.15",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",

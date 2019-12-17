@@ -6,6 +6,7 @@ import DisplayRoot from './DisplayRoot';
 import { buildDispatcers } from '../redux/Dispatchers'
 import { connect } from 'react-redux'
 import { toString } from 'lodash'
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 export class CollapseDisplay extends Component {
     state = {
         activeKey: false
@@ -16,27 +17,70 @@ export class CollapseDisplay extends Component {
             this.setState({
                 activeKey: !this.state.activeKey
             }) : console.log("object")
-        // this.props.active('users',key)
-        // this.props.add('tasks','', '', '', '')
+
     }
     render() {
         return (
-            console.log(this.props.obj),
             console.log(this.props.data),
-            <div>
-                <Collapse onChange={this.callback}>
-                    <Panel header={this.props.data.text} key={this.props.data.id}  >
-                        <p>{this.props.data.taskDescription}</p>
+            //using collapse antD -> working
+            // <div>
+            //     <Collapse onChange={this.callback}>
+            //         <Panel header={this.props.data.text} key={this.props.data.id}  >
+            //             <p>{this.props.data.taskDescription}</p>
+            //             {(this.state.activeKey && this.props.obj.then) ?
+            //                 <DisplayRoot id={this.props.data.id} s={(this.props.obj).then(toString(this.props.data.id))} />                                            
+            //             : console.log("dh")
+
+            //             }
+
+            //         </Panel>
+
+            //     </Collapse>
+            // </div>
+
+            //     {this.state.activeKey ?
+            //         (<ExpandMoreIcon onClick={this.callback} />
+            //             <p>this.props.data.text</p>)
+            //             : console.log("s")
+
+            //         < button type="submit" >Edit</button>
+            // }
+
+            <div class='collapsedisp'>
+                {console.log(this.props.data),
+                    // this.state.activeKey ?
+                    (<div class='co'>
+                        {console.log('objec')}
+                        <ExpandMoreIcon onClick={this.callback} />,
+                        <p>{this.props.data.text}</p>
+                        <button type="submit" >Edit</button>
                         {(this.state.activeKey && this.props.obj.then) ?
-                            <DisplayRoot id={this.props.data.id} s={(this.props.obj).then(toString(this.props.data.id))} />                                            
-                        : console.log("dh")
+                            (<div class='disco'>
+                                <br/>
+                                <br/>
+                                <DisplayRoot id={this.props.data.id} s={(this.props.obj).then(toString(this.props.data.id))} />
+                            </div>
 
-                        }
 
-                    </Panel>
+                            )
+                            : console.log("dh")}
+                    </div>
+                    )
+                    // : console.log("S")
 
-                </Collapse>
+                    // ( 
+                    // <div class='co'>
+                    //     <ExpandMoreIcon onClick={this.callback} />
+                    //     <p>{this.props.data.text}</p>,
+                    //     <button type="submit" >Edit</button>
+
+                    // </div>
+                    // )
+
+                }
+
             </div>
+
         )
     }
 }
