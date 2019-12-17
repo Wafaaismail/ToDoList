@@ -8,7 +8,7 @@ import {get,map} from 'lodash'
 export default class DisplayRoot extends Component {
     render() {
         return (
-            <div>
+            <div >
                 {/* <h1>todos</h1> */}
                  {   console.log(this.props.s),
                     key = get(this.props.s, 'path', 'defkey'),

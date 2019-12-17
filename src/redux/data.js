@@ -1,21 +1,24 @@
+import { rootReducer } from './handlers';
+
 const uuidv4 = require('uuid/v4');
-const gun = window.Gun()
 
 let arr = [uuidv4(), uuidv4(), uuidv4(), uuidv4(), uuidv4()];
 
 // task have userid 
 //subtask have taskid
+const gun = window.Gun()
+const root = gun.get('root')
 
-export const data = {
+export  const data = {
     tasks: {},
     subTasks: {},
     users: {
        
-            [arr[0]]: { id: [arr[0]], text: 'wafaa' },
-            [arr[1]]: { id: [arr[1]], text: 'asmaa' },
-            [arr[2]]: { id: [arr[2]], text: 'loli' },
-            [arr[3]]: { id: [arr[3]], text: 'mona' },
-            [arr[4]]: { id: [arr[4]], text: 'rania' }
+            '1': { id: '1', text: 'wafaa' },
+            '2': { id: '2', text: 'asmaa' },
+            '3': { id: '3', text: 'loli' },
+            '4': { id: '4', text: 'mona' },
+            '5': { id: '5', text: 'rania' }
        
     }
 };

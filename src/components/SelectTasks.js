@@ -15,6 +15,7 @@ class selectTasks extends React.Component {
                 <label>Select Task</label>
                 <select {...field} name='tasks' onChange={this.handleChange}>{
                     map(this.props.data.tasks, (task) => {
+                        
                         return (<option value={task.id}>{task.text}</option>)
                     })
                 }

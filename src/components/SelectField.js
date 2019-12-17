@@ -6,7 +6,7 @@ class SelectField extends React.Component {
     render() {
         const { input, field } = this.props
         return (
-            <div>
+            <div class="inputcomp">
                 <label>{input.name}</label>
                 <select {...field} {...input}>{
                     map(this.props.data.users, (user) => {

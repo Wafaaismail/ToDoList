@@ -5,7 +5,7 @@ export class TextboxField extends React.Component {
         const { input, field } = this.props
 
         return (
-            <div>
+            <div class="inputcomp">
                 <label>{input.name}</label>
                 <input {...input} {...field}></input>
             </div>

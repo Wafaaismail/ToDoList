@@ -5,12 +5,12 @@ const gun = window.Gun()
 // import Gun from 'gun/gun'
 import { connect } from 'react-redux'
 
-let arr = [uuidv4(), uuidv4(), uuidv4(), uuidv4(), uuidv4()];
-const user1 = { [arr[0]]: { id: [arr[0]], text: 'wafaa' } }
-const user2 = { [arr[1]]: { id: [arr[1]], text: 'sara' } }
-const user3 = { [arr[2]]: { id: [arr[2]], text: 'salma' } }
-const user4 = { [arr[3]]: { id: [arr[3]], text: 'mona' } }
-const user5 = { [arr[4]]: { id: [arr[4]], text: 'samaa' } }
+// let arr = [uuidv4(), uuidv4(), uuidv4(), uuidv4(), uuidv4()];
+// const user1 = { [arr[0]]: { id: [arr[0]], text: 'wafaa' } }
+// const user2 = { [arr[1]]: { id: [arr[1]], text: 'sara' } }
+// const user3 = { [arr[2]]: { id: [arr[2]], text: 'salma' } }
+// const user4 = { [arr[3]]: { id: [arr[3]], text: 'mona' } }
+// const user5 = { [arr[4]]: { id: [arr[4]], text: 'samaa' } }
 
 const root = gun.get('root')
 //const users = root.get('users')
@@ -58,5 +58,3 @@ export const syncRedux = (disp, app) => {
     disp(app, data.title, data.users, data.description, data.done, data.id)
   })
 }
-
-

@@ -52,8 +52,11 @@ export class CounterModal extends Component {
           {/* <SubTodo todos={this.props.todoValues}/> */}
           <SubTodo/>
         </Modal>
-
-        <button type="submit" class='btnmodal'>Add sub task </button>
+        <div class='btnmodal'>
+        <br/>
+          <br/>
+        <button type="submit" >Add sub task </button>
+        </div>
       </Form>
     )
 

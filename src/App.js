@@ -19,10 +19,14 @@ class App extends Component {
           <br/>
           <h1 > Todos</h1>
           <br/>
-          <Todo className="todo"/>
+          
+          <Todo />
           <br/>
           <hr/>
+          <div className="discollapse">
           <DisplayRoot s={dcontroller({})} id={{}}/>
+          </div>
+         
           {/* <RootDisplay/> */}
           
         </div>
